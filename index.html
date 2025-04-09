@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Landing Page</title>
+    <style>
+        /* Estilos generales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Navegación */
+        nav {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #4a6cf7;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #4a6cf7;
+        }
+        
+        .btn {
+            background-color: #4a6cf7;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #3451b2;
+        }
+        
+        /* Sección Hero */
+        .hero {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 150px 0 100px;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        .hero p {
+            font-size: 18px;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+        
+        /* Características */
+        .features {
+            padding: 100px 0;
+            background-color: #fff;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .features-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            padding: 30px;
+            width: calc(33.333% - 20px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .feature-icon {
+            background-color: #e6effd;
+            color: #4a6cf7;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        
+        .feature-card h3 {
+            margin-bottom: 15px;
+        }
+        
+        /* Testimonios */
+        .testimonials {
+            background-color: #f5f7fa;
+            padding: 100px 0;
+        }
+        
+        .testimonials-grid {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+        }
+        
+        .testimonial-card {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            width: calc(33.333% - 20px);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+            background-color: #ddd;
+        }
+        
+        .author-info h4 {
+            margin-bottom: 5px;
+        }
+        
+        /* CTA */
+        .cta {
+            background: linear-gradient(135deg, #4a6cf7 0%, #1e3a8a 100%);
+            padding: 100px 0;
+            color: white;
+            text-align: center;
+        }
+        
+        .cta h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        .cta p {
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .form-container {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 15px;
+            border-radius: 5px;
+            border: none;
+            font-size: 16px;
+        }
+        
+        .btn-submit {
+            background-color: #fff;
+            color: #4a6cf7;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .btn-submit:hover {
+            background-color: #f0f0f0;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #1a1d23;
+            color: #fff;
+            padding: 60px 0;
+        }
+        
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        
+        .footer-col {
+            width: calc(25% - 30px);
+        }
+        
+        .footer-col h3 {
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-col ul li a {
+            color: #bbb;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-col ul li a:hover {
+            color: #fff;
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #bbb;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .feature-card, .testimonial-card {
+                width: calc(50% - 15px);
+            }
+            
+            .footer-col {
+                width: calc(50% - 15px);
+                margin-bottom: 30px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .feature-card, .testimonial-card {
+                width: 100%;
+            }
+            
+            .footer-col {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navegación -->
+    <nav>
+        <div class="container nav-container">
+            <div class="logo">MiMarca</div>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#caracteristicas">Características</a></li>
+                <li><a href="#testimonios">Testimonios</a></li>
+                <li><a href="#contacto" class="btn">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="container">
+            <h1>Soluciones innovadoras para tu negocio</h1>
+            <p>Transforma tu idea en realidad con nuestras soluciones tecnológicas avanzadas y personalizadas para cada necesidad.</p>
+            <a href="#contacto" class="btn">Comienza Ahora</a>
+        </div>
+    </section>
+    
+    <!-- Features Section -->
+    <section class="features" id="caracteristicas">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nuestras Características</h2>
+                <p>Descubre todas las ventajas que te ofrecemos para impulsar tu negocio al siguiente nivel.</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">✨</div>
+                    <h3>Diseño Innovador</h3>
+                    <p>Creamos experiencias únicas y memorables que destacan tu marca en el mercado digital competitivo.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3>Alto Rendimiento</h3>
+                    <p>Optimizamos cada aspecto para garantizar velocidad y eficiencia en todas nuestras soluciones.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Seguridad Avanzada</h3>
+                    <p>Protegemos tus datos con los más altos estándares de seguridad y encriptación disponibles.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Totalmente Responsivo</h3>
+                    <p>Diseñamos para todos los dispositivos, garantizando una experiencia perfecta en cualquier pantalla.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">⚙️</div>
+                    <h3>Personalización Total</h3>
+                    <p>Adaptamos cada solución a tus necesidades específicas para maximizar resultados.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🔍</div>
+                    <h3>SEO Optimizado</h3>
+                    <p>Mejoramos tu visibilidad en buscadores con estrategias avanzadas de optimización.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonios">
+        <div class="container">
+            <div class="section-title">
+                <h2>Lo que dicen nuestros clientes</h2>
+                <p>Descubre cómo hemos ayudado a otros negocios a alcanzar sus objetivos.</p>
+            </div>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "Trabajar con este equipo transformó completamente nuestro negocio. La calidad y profesionalidad es inigualable."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-img"></div>
+                        <div class="author-info">
+                            <h4>Ana Martínez</h4>
+                            <p>CEO, TechStart</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "Increíble atención al cliente y resultados que superaron todas nuestras expectativas. Definitivamente recomendado."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-img"></div>
+                        <div class="author-info">
+                            <h4>Carlos Rodríguez</h4>
+                            <p>Director de Marketing, InnovaSoft</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "Nuestra presencia online mejoró un 200% después de implementar las soluciones que nos ofrecieron. Estamos encantados."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-img"></div>
+                        <div class="author-info">
+                            <h4>Laura Sánchez</h4>
+                            <p>Fundadora, EcoStyle</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="cta" id="contacto">
+        <div class="container">
+            <h2>¿Listo para dar el siguiente paso?</h2>
+            <p>Contáctanos hoy mismo y descubre cómo podemos ayudarte a alcanzar tus objetivos.</p>
+            
+            <div class="form-container">
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Nombre completo" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-control" placeholder="Correo electrónico" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" class="form-control" placeholder="Número de teléfono">
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" placeholder="Tu mensaje" rows="4"></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">Enviar Mensaje</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-col">
+                <h3>MiMarca</h3>
+                <p>Soluciones innovadoras para transformar tu negocio en la era digital.</p>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Enlaces</h3>
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#caracteristicas">Características</a></li>
+                    <li><a href="#testimonios">Testimonios</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Servicios</h3>
+                <ul>
+                    <li><a href="#">Diseño Web</a></li>
+                    <li><a href="#">Desarrollo de Apps</a></li>
+                    <li><a href="#">Marketing Digital</a></li>
+                    <li><a href="#">Consultoría SEO</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Contacto</h3>
+                <ul>
+                    <li>info@mimarca.com</li>
+                    <li>+34 123 456 789</li>
+                    <li>Calle Principal 123, Madrid</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>© 2025 MiMarca. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>
